@@ -45,15 +45,6 @@ const projects: Project[] = [
     tags: ["React", "Node.js", "Tailwind", "Framer Motion"],
     link: "https://movie-website-lemon-two.vercel.app/",
   },
-  {
-    title: "This Portfolio",
-    category: "Motion Design",
-    description:
-      "The site you're on: scroll-driven storytelling, shared-element transitions, 3D tilt and magnetic interactions, built with accessibility in mind (respects reduced motion).",
-    image: "/images/portfolio-site.png",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
-    repo: "https://github.com/VincentiusElbert/portofolio",
-  },
 ]
 
 
@@ -92,7 +83,7 @@ export function PortfolioSection() {
           </p>
         </motion.div>
 
-        <motion.div layout className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <AnimatePresence mode="popLayout">
             {projects.map((project) => (
               <ProjectCard key={project.title} project={project} onOpen={() => setSelected(project)} />
