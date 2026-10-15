@@ -4,7 +4,7 @@ import type React from "react"
 import { useEffect, useState } from "react"
 import { AnimatePresence, motion, useMotionValue, useSpring, useTransform } from "framer-motion"
 import Image from "next/image"
-import { ArrowUpRight, X } from "lucide-react"
+import { ArrowUpRight, Code2, X } from "lucide-react"
 
 type Project = {
   title: string
@@ -13,9 +13,20 @@ type Project = {
   image: string
   tags: string[]
   link?: string
+  repo?: string
 }
 
 const projects: Project[] = [
+  {
+    title: "Leadboard",
+    category: "Analytics Dashboard",
+    description:
+      "A lead analytics dashboard with KPI cards, interactive charts, URL-synced filters, a sortable table with CSV export, and columns discovered at runtime from JSON data. Light and dark themes with color-blind-safe charts.",
+    image: "/images/leadboard.png",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Recharts", "Framer Motion"],
+    link: "https://leadboard-six.vercel.app/",
+    repo: "https://github.com/VincentiusElbert/leadboard",
+  },
   {
     title: "Pokemon-API",
     category: "API App",
@@ -41,6 +52,7 @@ const projects: Project[] = [
       "The site you're on: scroll-driven storytelling, shared-element transitions, 3D tilt and magnetic interactions, built with accessibility in mind (respects reduced motion).",
     image: "/images/portfolio-site.png",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    repo: "https://github.com/VincentiusElbert/portofolio",
   },
 ]
 
@@ -80,7 +92,7 @@ export function PortfolioSection() {
           </p>
         </motion.div>
 
-        <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div layout className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           <AnimatePresence mode="popLayout">
             {projects.map((project) => (
               <ProjectCard key={project.title} project={project} onOpen={() => setSelected(project)} />
@@ -222,23 +234,36 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
               </span>
             ))}
           </motion.div>
-          {project.link ? (
-          <motion.a
-            variants={item}
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            className="inline-flex items-center gap-2 bg-[#91FF02] text-black font-semibold px-6 py-3 rounded-full"
-          >
-            Visit live site <ArrowUpRight className="w-4 h-4" />
-          </motion.a>
-          ) : (
-            <motion.p variants={item} className="inline-flex items-center gap-2 text-[#91FF02] font-medium">
-              <span className="w-2 h-2 rounded-full bg-[#91FF02] animate-pulse" /> You're looking at it right now
-            </motion.p>
-          )}
+          <motion.div variants={item} className="flex flex-wrap items-center gap-3">
+            {project.link ? (
+              <motion.a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className="inline-flex items-center gap-2 bg-[#91FF02] text-black font-semibold px-6 py-3 rounded-full"
+              >
+                Visit live site <ArrowUpRight className="w-4 h-4" />
+              </motion.a>
+            ) : (
+              <p className="inline-flex items-center gap-2 text-[#91FF02] font-medium">
+                <span className="w-2 h-2 rounded-full bg-[#91FF02] animate-pulse" /> You're looking at it right now
+              </p>
+            )}
+            {project.repo && (
+              <motion.a
+                href={project.repo}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className="inline-flex items-center gap-2 border border-white/20 text-white hover:border-[#91FF02] hover:text-[#91FF02] font-semibold px-6 py-3 rounded-full transition-colors"
+              >
+                <Code2 className="w-4 h-4" /> View code
+              </motion.a>
+            )}
+          </motion.div>
         </motion.div>
       </motion.div>
     </motion.div>
