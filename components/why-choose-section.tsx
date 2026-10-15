@@ -5,30 +5,12 @@ import Image from "next/image"
 
 export function WhyChooseSection() {
   const comparisons = [
-    {
-      client: "Basic React Knowledge",
-      solution: "React Expert",
-    },
-    {
-      client: "Inconsistent Design Translation",
-      solution: "Precise Website Implementation",
-    },
-    {
-      client: "Little to No TypeScript Knowledge",
-      solution: "TypeScript Proficiency",
-    },
-    {
-      client: "Unstructured Code",
-      solution: "Clean, Maintainable Code",
-    },
-    {
-      client: "Inconsistent Responsiveness",
-      solution: "Responsive Website Development",
-    },
-    {
-      client: "No Design Skills",
-      solution: "UI Design Proficiency (Figma)",
-    },
+    { client: "Only Knows One Side of the Stack", solution: "Full-Stack Delivery, API to UI" },
+    { client: "Waits for Fully Specified Tasks", solution: "Turns Business Requests into Specs" },
+    { client: "Little to No TypeScript Knowledge", solution: "TypeScript Across Web & Mobile" },
+    { client: "Inconsistent Design Translation", solution: "Pixel-Precise Builds from Figma" },
+    { client: "Web Only", solution: "Web, Mobile & Admin Dashboards" },
+    { client: "No Production Experience", solution: "Live Products with Thousands of Users" },
   ]
 
   return (
@@ -52,9 +34,10 @@ export function WhyChooseSection() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-12">
           {/* Working with Me */}
           <motion.div
+            className="rounded-2xl border border-[#91FF02]/40 bg-[#91FF02]/[0.04] p-8 shadow-[0_0_80px_-30px_#91FF02]"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
@@ -92,6 +75,7 @@ export function WhyChooseSection() {
 
           {/* Another Talent */}
           <motion.div
+            className="rounded-2xl border border-white/10 p-8 opacity-80"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
@@ -129,9 +113,14 @@ export function WhyChooseSection() {
           viewport={{ once: true }}
           className="text-center mt-12"
         >
-          <button className="bg-[#91FF02] text-black px-8 py-3 rounded-full font-medium hover:bg-[#7de002] transition-colors">
+          <motion.button
+            onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-[#91FF02] text-black px-8 py-3 rounded-full font-medium hover:bg-[#7de002] transition-colors shadow-[0_0_40px_-10px_#91FF02]"
+          >
             HIRE ME
-          </button>
+          </motion.button>
         </motion.div>
       </div>
     </section>

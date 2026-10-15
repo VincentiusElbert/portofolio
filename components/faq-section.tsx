@@ -9,32 +9,32 @@ const faqs = [
   {
     question: "What technologies do you specialize in?",
     answer:
-      "I specialize in React.js, Next.js, Vue.js, Tailwind CSS, and TypeScript, ensuring high-performance, scalable, and maintainable web applications.",
+      "My core is the React ecosystem: React, Next.js and TypeScript with Tailwind CSS, Shadcn/UI and Framer Motion. I also work with Vue.js and Inertia.js, build mobile apps with Expo (React Native), and write backends in PHP/Laravel with SQL Server.",
   },
   {
     question: "Do you work on both frontend and backend?",
     answer:
-      "I focus primarily on frontend development, translating UI/UX designs into responsive and interactive web experiences. However, I collaborate closely with designers to ensure a seamless user experience.",
+      "Yes. I'm frontend-focused but ship features end to end: database queries, Laravel REST APIs with role-based access control, and the UI on top. I also write API contracts that other teams build against.",
   },
   {
-    question: "Can you optimize existing websites?",
+    question: "Can you build mobile apps too?",
     answer:
-      "Yes! I can analyze, debug, and optimize websites to improve speed, accessibility, and SEO, using best practices like lazy loading, code splitting, and performance monitoring.",
+      "Yes. I architected and built a loyalty mobile app with Expo (React Native), React, TypeScript and Tailwind CSS that serves thousands of active users.",
   },
   {
-    question: "Are you available for freelance work?",
+    question: "Are you open to remote work?",
     answer:
-      "Yes! I am open to freelance, contract, and full-time opportunities, depending on the project scope and requirements. Feel free to reach out!",
+      "Yes! I'm based in Jakarta and actively looking for remote opportunities with international teams. I'm comfortable with async, written communication and Agile workflows.",
   },
   {
     question: "What's your development process?",
     answer:
-      "I start by understanding the project goals and requirements, followed by wireframing or UI implementation, then development, testing, and deployment—ensuring a smooth and efficient workflow.",
+      "I start by turning the business request into a clear technical spec and API contract, then build from the design prototype, test, and deploy, working in Agile sprints with PMs, designers and partner teams.",
   },
   {
     question: "How can I get in touch with you?",
     answer:
-      "You can contact me via email, LinkedIn, or GitHub. I usually begin with a consultation to discuss your needs, then propose a plan to bring your vision to life. Let's create something awesome together!",
+      "Use the contact form below, email vincentiuselbert@gmail.com, or reach me on LinkedIn or WhatsApp. You can also download my CV from the top of the page.",
   },
 ]
 
@@ -60,7 +60,7 @@ export function FaqSection() {
           className="text-center mb-16"
         >
           <h3 className="text-[#91FF02] text-lg font-medium mb-2 tracking-wider">FAQ</h3>
-          <h2 className="text-white text-4xl font-bold mb-4">FREQUENTLY ASKED QUESTIONS</h2>
+          <h2 className="text-white text-3xl md:text-4xl font-bold mb-4">FREQUENTLY ASKED QUESTIONS</h2>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-8">
