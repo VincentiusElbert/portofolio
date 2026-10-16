@@ -1,40 +1,12 @@
 "use client"
 
-import type React from "react"
-
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
+import { ContactForm } from "@/components/contact-form"
 import Image from "next/image"
 import { Download, Instagram, Linkedin, Mail } from "lucide-react"
-import { useState } from "react"
 
 export function ContactSection() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  })
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-
-    const emailBody = `Name: ${formData.name}\nEmail: ${formData.email}\nMessage: ${formData.message}`
-    const mailtoLink = `mailto:vincentiuselbert@gmail.com?subject=Contact from ${formData.name}&body=${encodeURIComponent(emailBody)}`
-    window.location.href = mailtoLink
-
-    // Reset form
-    setFormData({ name: "", email: "", message: "" })
-  }
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    })
-  }
-
   return (
     <section id="contact" className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <div className="absolute inset-0 z-0">
@@ -148,52 +120,7 @@ export function ContactSection() {
             viewport={{ once: true }}
             className="space-y-6"
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="space-y-4">
-                <div>
-                  <label className="block text-white text-sm font-medium mb-2">Name</label>
-                  <Input
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    placeholder="Your Name"
-                    className="bg-black border-gray-800 text-white placeholder:text-gray-500 h-14 rounded-lg"
-                    required
-                  />
-                </div>
-                <div>
-                  <label className="block text-white text-sm font-medium mb-2">Email</label>
-                  <Input
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    placeholder="Your Email"
-                    type="email"
-                    className="bg-black border-gray-800 text-white placeholder:text-gray-500 h-14 rounded-lg"
-                    required
-                  />
-                </div>
-                <div>
-                  <label className="block text-white text-sm font-medium mb-2">Message</label>
-                  <Textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    placeholder="Your Message"
-                    rows={6}
-                    className="bg-black border-gray-800 text-white placeholder:text-gray-500 rounded-lg resize-none"
-                    required
-                  />
-                </div>
-              </div>
-
-              <Button
-                type="submit"
-                className="w-full transition-transform hover:scale-[1.02] active:scale-[0.98] bg-[#91FF02] text-black hover:bg-[#91FF02]/90 h-14 text-lg font-semibold rounded-lg"
-              >
-                Send Message
-              </Button>
-            </form>
+            <ContactForm />
           </motion.div>
         </div>
       </motion.div>
