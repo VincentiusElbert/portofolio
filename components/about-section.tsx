@@ -5,11 +5,11 @@ import { animate, motion, useInView, useScroll, useTransform, type MotionValue }
 import Image from "next/image"
 
 const floatingShots = [
-  { src: "/images/pokemon-api.png", className: "left-0 top-10 w-72 h-44", speed: -80 },
+  { src: "/images/pokedex.png", className: "left-0 top-10 w-72 h-44", speed: -80 },
   { src: "/images/movie-website.png", className: "left-12 top-64 w-60 h-36", speed: 60 },
-  { src: "/images/journal-website.png", className: "right-0 top-6 w-64 h-40", speed: 90 },
-  { src: "/images/ecommerce-website.png", className: "-right-4 top-60 w-72 h-44", speed: -60 },
-  { src: "/images/home-market.png", className: "right-1/4 bottom-0 w-56 h-36", speed: 40 },
+  { src: "/images/leadboard.png", className: "right-0 top-6 w-64 h-40", speed: 90 },
+  { src: "/images/collect-loyalty.png", className: "-right-4 top-60 w-72 h-44", speed: -60 },
+  { src: "/images/pokemon-api.png", className: "right-1/4 bottom-0 w-56 h-36", speed: 40 },
 ]
 
 const stats = [

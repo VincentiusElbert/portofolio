@@ -38,13 +38,14 @@ const projects: Project[] = [
     repo: "https://github.com/VincentiusElbert/loyalty.application",
   },
   {
-    title: "Pokemon-API",
-    category: "API App",
+    title: "Pokédex",
+    category: "Web App",
     description:
-      "A Pokémon API-powered Pokedex web app to search, discover, and explore Pokémon with an interactive and fun UI.",
-    image: "/images/pokemon-api.png",
-    tags: ["React", "Node.js", "Tailwind", "Framer Motion"],
-    link: "https://pokemon-api-lilac-beta.vercel.app/",
+      "A fast Pokédex for all 1,025 Pokémon: typo-tolerant search, type and generation filters, and detail pages with stats, type matchups, branching evolution trees, moves, shiny artwork and cries.",
+    image: "/images/pokedex.png",
+    tags: ["React", "TypeScript", "Vite", "Tailwind CSS", "PokéAPI"],
+    link: "https://pokedex-api-elbert.vercel.app/",
+    repo: "https://github.com/VincentiusElbert/pokemon-api",
   },
   {
     title: "Movie Website",
