@@ -28,6 +28,16 @@ const projects: Project[] = [
     repo: "https://github.com/VincentiusElbert/leadboard",
   },
   {
+    title: "Collect: Loyalty App",
+    category: "Mobile App",
+    description:
+      "A loyalty rewards app built with Expo for iOS, Android and web: points wallet, receipt scanning, rewards catalog, flash sale with one-per-member limits, and duplicate-safe redemption using idempotency keys, with a live double-tap demo.",
+    image: "/images/collect-loyalty.png",
+    tags: ["Expo", "React Native", "TypeScript", "Reanimated", "Zustand"],
+    link: "https://loyaltyapplication.vercel.app/",
+    repo: "https://github.com/VincentiusElbert/loyalty.application",
+  },
+  {
     title: "Pokemon-API",
     category: "API App",
     description:
@@ -83,7 +93,7 @@ export function PortfolioSection() {
           </p>
         </motion.div>
 
-        <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div layout className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           <AnimatePresence mode="popLayout">
             {projects.map((project) => (
               <ProjectCard key={project.title} project={project} onOpen={() => setSelected(project)} />
