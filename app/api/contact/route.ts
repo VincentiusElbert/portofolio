@@ -35,11 +35,14 @@ export async function POST(request: Request) {
   const name = String(body.name ?? "")
   const email = String(body.email ?? "")
   const message = String(body.message ?? "")
-  const honeypot = String(body.company ?? "") // hidden field real visitors never fill
+  const honeypot = String(body.hp_check ?? "") // hidden field real visitors never fill
   const elapsed = Date.now() - Number(body.startedAt ?? 0)
 
-  // Bots: pretend it worked so they don't retry, but send nothing
-  if (honeypot || elapsed < 3000) return NextResponse.json({ ok: true })
+  // Bots: pretend it worked so they don't retry, but send nothing (logged so false positives are visible)
+  if (honeypot || elapsed < 3000) {
+    console.warn("Contact form: dropped as bot", { honeypot: Boolean(honeypot), elapsedMs: elapsed })
+    return NextResponse.json({ ok: true })
+  }
 
   const errors = validateContact({ name, email, message })
   if (Object.keys(errors).length) return NextResponse.json({ error: "Please check the form.", errors }, { status: 422 })

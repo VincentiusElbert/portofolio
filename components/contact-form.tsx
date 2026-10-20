@@ -46,7 +46,7 @@ export function ContactForm() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...values, company: honeypot.current?.value ?? "", startedAt: startedAt.current }),
+        body: JSON.stringify({ ...values, hp_check: honeypot.current?.value ?? "", startedAt: startedAt.current }),
       })
       const data = await res.json().catch(() => ({}))
       if (!res.ok) {
@@ -171,10 +171,11 @@ export function ContactForm() {
               />
             </Field>
 
-            {/* Honeypot: hidden from people, tempting for bots */}
+            {/* Honeypot: hidden from people, tempting for bots. The name is deliberately meaningless:
+                browser autofill fills fields it recognizes (like "company") and would trip the trap. */}
             <div aria-hidden className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
-              <label htmlFor="contact-company">Company</label>
-              <input id="contact-company" ref={honeypot} name="company" tabIndex={-1} autoComplete="off" />
+              <label htmlFor="contact-hp">Leave this field empty</label>
+              <input id="contact-hp" ref={honeypot} name="hp_check" type="text" tabIndex={-1} autoComplete="new-password" data-lpignore="true" data-1p-ignore />
             </div>
 
             <AnimatePresence>
