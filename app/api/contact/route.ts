@@ -36,7 +36,7 @@ export async function POST(request: Request) {
   const email = String(body.email ?? "")
   const message = String(body.message ?? "")
   const honeypot = String(body.hp_check ?? "") // hidden field real visitors never fill
-  const elapsed = Date.now() - Number(body.startedAt ?? 0)
+  const elapsed = Number(body.elapsedMs ?? 0) // time the visitor spent on the form, measured in their browser
 
   // Bots: pretend it worked so they don't retry, but send nothing (logged so false positives are visible)
   if (honeypot || elapsed < 3000) {

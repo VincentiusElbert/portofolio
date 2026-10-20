@@ -46,7 +46,9 @@ export function ContactForm() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...values, hp_check: honeypot.current?.value ?? "", startedAt: startedAt.current }),
+        // Send how long the form was open (measured on this device), never a timestamp:
+        // the visitor's clock can be minutes off from the server's.
+        body: JSON.stringify({ ...values, hp_check: honeypot.current?.value ?? "", elapsedMs: Date.now() - startedAt.current }),
       })
       const data = await res.json().catch(() => ({}))
       if (!res.ok) {
